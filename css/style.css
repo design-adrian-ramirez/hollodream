@@ -367,20 +367,39 @@ h4 {
 
 @media (max-width: 768px) {
 
+html, body {
+  height: 100%;       /* ensures full viewport */
+  margin: 0;
+  padding: 0;
+}
+
   /* Hero adjustments */
 
+  .hero {
+    position: relative;
+    height: 100vh;     /* full viewport height */
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
+    padding: 0;              /* remove any padding offsets */
+  }
+
   .hero-inner {
+    position: relative;      /* relative to .hero now */
+    top: 0;
+    left: 0;
+    transform: none;         /* no manual translation */
     display: flex;
     flex-direction: column;
-    align-items: center !important;       /* horizontal centering */
-    justify-content: center !important;   /* vertical centering */
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    width: 100%;
-    max-width: 90vw;           /* prevent overflow */
-    margin: 0 auto;
-    padding: 0;                /* remove extra padding */
-    position: inherit;
+    width: 90vw;             /* safe width */
+    z-index: 10;
   }
+
   .hero-inner h1 {
     font-size: 6rem;
   }
@@ -458,17 +477,35 @@ h4 {
 
 @media (max-width: 480px) {
 
+  html, body {
+  height: 100%;       /* ensures full viewport */
+  margin: 0;
+  padding: 0;
+}
+
+  .hero {
+    position: relative;
+    height: 100vh;     /* full viewport height */
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
+    padding: 0;              /* remove any padding offsets */
+  }
+
   .hero-inner {
+    position: relative;      /* relative to .hero now */
+    top: 0;
+    left: 0;
+    transform: none;         /* no manual translation */
     display: flex;
     flex-direction: column;
-    align-items: center !important;       /* horizontal centering */
-    justify-content: center !important;   /* vertical centering */
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    width: 100%;
-    max-width: 90vw;           /* prevent overflow */
-    margin: 0 auto;
-    padding: 0;                /* remove extra padding */
-    position: inherit;
+    width: 90vw;             /* safe width */
+    z-index: 10;
   }
 
   .hero-inner h1 {
