@@ -223,6 +223,12 @@
     transition: color 0.3s;
   }
   
+.top-nav .logo {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal;
+}
+
   .artist-links a:hover {
     color: #b0ff12;;        /* highlight color when hovered */
   }

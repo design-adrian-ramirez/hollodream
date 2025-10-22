@@ -417,3 +417,7 @@ h4 {
     font-size: 0.7rem;
   }
 }
+
+html, body {
+  overflow-x: hidden;
+}
