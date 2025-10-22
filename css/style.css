@@ -261,6 +261,7 @@ h4 {
   display: block;
   text-decoration: none;
   color: inherit;
+  
 }
 
 .card-inner {
@@ -269,7 +270,9 @@ h4 {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.6s;
+
 }
+
 
 .card:hover .card-inner {
   transform: rotateY(180deg);
@@ -308,6 +311,11 @@ h4 {
   font-size: 1rem;
   color: black;
 }
+
+.card.flip .card-inner {  /* added */
+  transform: rotateY(180deg) !important;;
+}
+
 
 /* Responsive Grid */
 @media (max-width: 1200px) {

@@ -21,6 +21,69 @@ hamburger.addEventListener('click', () => {                     // Toggle menu o
   hamburger.classList.toggle('open');
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const TEST_MODE = false; // set true to test in desktop emulator if width check blocks it
+  const MOBILE_MAX = 768;
+
+  function createObserver() {
+    // Clean up any previous observers
+    if (window._artistsObserver) {
+      window._artistsObserver.disconnect();
+      window._artistsObserver = null;
+    }
+
+    const isMobile = window.innerWidth <= MOBILE_MAX || TEST_MODE;
+    if (!isMobile) return;
+
+    const cards = document.querySelectorAll('.artists-grid .card');
+    if (!cards.length) return;
+
+    // Make a thin horizontal band centered on the screen.
+    // We'll use rootMargin so intersection occurs when element intersects that band.
+    const bandHeight = 2; // px — thin band around center
+    const halfViewport = Math.floor(window.innerHeight / 2);
+    const topMargin = -(halfViewport - Math.floor(bandHeight / 2));
+    const bottomMargin = -(halfViewport - Math.ceil(bandHeight / 2));
+    const rootMargin = `${topMargin}px 0px ${bottomMargin}px 0px`;
+
+    // threshold 0 means any intersection with the band counts
+    const options = {
+      root: null,
+      rootMargin,
+      threshold: 0
+    };
+
+    window._artistsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // When the card intersects the centered band -> flip
+        if (entry.isIntersecting) {
+          entry.target.classList.add('flip');
+        } else {
+          entry.target.classList.remove('flip');
+        }
+      });
+    }, options);
+
+    cards.forEach(card => window._artistsObserver.observe(card));
+  }
+
+  // initialize
+  createObserver();
+
+  // Recreate on resize/orientationchange so rootMargin matches new viewport
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(createObserver, 150);
+  });
+
+  window.addEventListener('orientationchange', () => {
+    // slight delay so dimensions settle
+    setTimeout(createObserver, 200);
+  });
+});
+
+
 mobileLinks.forEach(link => {                                   // Close menu smoothly when a link is clicked
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');                         // Remove the 'open' class from hamburger immediately
@@ -36,3 +99,5 @@ mobileLinks.forEach(link => {                                   // Close menu sm
     }, 400);                                                    // match the CSS transition duration
   });
 });
+
+
