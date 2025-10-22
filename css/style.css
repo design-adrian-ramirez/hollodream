@@ -98,7 +98,7 @@ p {
 h4 {
   background: black;
   font-size: 1.5rem;
-  margin: 0.5rem 0;
+  margin: 0;
   padding: 0 10.1rem;
 }
 
@@ -313,7 +313,7 @@ h4 {
 }
 
 .card.flip .card-inner {  /* added */
-  transform: rotateY(180deg) !important;;
+  transform: rotateY(180deg) !important;
 }
 
 
@@ -323,6 +323,21 @@ h4 {
     grid-template-columns: repeat(3, 1fr);
     padding: 2rem 4rem;
   }
+    #representation, #creative, #booking, p, h4 {
+    padding: 0.5rem 1rem;
+  }
+
+  #representation {
+    padding-top: 72px; /* prevents nav from covering content */
+  }
+
+  #creative {
+    padding-top: 36px; /* prevents nav from covering content */
+  }
+
+  #booking {
+    padding-top: 36px; /* prevents nav from covering content */
+  }
 }
 
 @media (max-width: 1024px) {
@@ -331,9 +346,20 @@ h4 {
   }
 
   #representation, #creative, #booking, p, h4 {
-    padding: 1rem 4rem;
+    padding: 0.5rem 1rem;
   }
 
+  #representation {
+    padding-top: 72px; /* prevents nav from covering content */
+  }
+
+  #creative {
+    padding-top: 36px; /* prevents nav from covering content */
+  }
+
+  #booking {
+    padding-top: 36px; /* prevents nav from covering content */
+  }
   .top-nav {
     padding: 1rem 4rem;
   }
@@ -342,6 +368,18 @@ h4 {
 @media (max-width: 768px) {
 
   /* Hero adjustments */
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* horizontal centering */
+    justify-content: center;   /* vertical centering */
+    text-align: center;
+    width: 100%;
+    max-width: 90vw;           /* prevent overflow */
+    margin: 0 auto;
+    padding: 0;                /* remove extra padding */
+  }
   .hero-inner h1 {
     font-size: 3.5rem;
   }
@@ -366,20 +404,33 @@ h4 {
 
   /* Sections padding */
   #representation, #creative, #booking, p, h4 {
-    padding: 1rem 2rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  #representation {
+    padding-top: 72px; /* prevents nav from covering content */
+  }
+
+  #creative {
+    padding-top: 36px; /* prevents nav from covering content */
+  }
+
+  #booking {
+    padding-top: 36px; /* prevents nav from covering content */
   }
 
   .top-nav {
     padding: 1rem 2rem;
   }
+  
 
   /* Artists grid mobile */
-  .artists-grid {
-    grid-template-columns: repeat(2, 1fr);
-    padding-left: 2rem;   /* match .top-nav left */
-    padding-right: 2rem;  /* match .top-nav right */
-    gap: 1rem;
-    justify-items: center;
+.artists-grid {
+  grid-template-columns: 1fr;
+  padding: 2rem;
+  gap: 0.5rem;
+  justify-items: center;
   
   }
 
@@ -394,6 +445,10 @@ h4 {
     font-size: 1.2rem;
     text-align: left;
   }
+  .footer {
+    padding: 20px;
+  }
+  
 }
 
 @media (max-width: 480px) {
@@ -401,14 +456,29 @@ h4 {
     font-size: 2.5rem;
   }
 
-  .artists-grid {
-    grid-template-columns: 1fr;
-    padding: 0.5rem;
-    gap: 0.5rem;
-  }
+.artists-grid {
+  grid-template-columns: 1fr;
+  padding: 1rem;
+  gap: 0.5rem;
+  justify-items: center;
+  
+}
 
   #representation, #creative, #booking, p, h4 {
     padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  #representation {
+    padding-top: 72px; /* prevents nav from covering content */
+  }
+
+  #creative {
+    padding-top: 36px; /* prevents nav from covering content */
+  }
+
+  #booking {
+    padding-top: 36px; /* prevents nav from covering content */
   }
 
   .top-nav {
@@ -418,6 +488,12 @@ h4 {
   .hero-inner nav a {
     font-size: 0.7rem;
   }
+
+  .footer {
+    padding: 20px;
+  }
+
+  
 }
 
 html, body {
