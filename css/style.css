@@ -50,7 +50,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-bottom: 70px; /* maintain spacing visually */
+  padding-bottom: 85px; /* maintain spacing visually */
   width: 90vw;
   z-index: 10;
 }
@@ -309,6 +309,23 @@ footer p {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .hero-inner nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;           /* force full screen width */
+    margin: 0 auto;         /* center the nav horizontally */
+    padding: 0;
+    gap: 2rem;              /* spacing between links */
+    position: relative;     /* ensure not inheriting absolute offset */
+    left: 50%;
+    transform: translateX(-50%); /* perfectly center if parent is narrower */
+  }
+
+  .hero-inner nav a {
+    text-align: center;
+    flex: 0;
+  }
   
 }
 
@@ -319,5 +336,23 @@ footer p {
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .hero-inner nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;           /* force full screen width */
+    margin: 0 auto;         /* center the nav horizontally */
+    padding: 0;
+    gap: 2rem;              /* spacing between links */
+    position: relative;     /* ensure not inheriting absolute offset */
+    left: 50%;
+    transform: translateX(-50%); /* perfectly center if parent is narrower */
+  }
+
+  .hero-inner nav a {
+    text-align: center;
+    flex: 0;
   }
 }
