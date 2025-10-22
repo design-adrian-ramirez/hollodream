@@ -1,0 +1,421 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  @font-face {
+    font-family: 'Integral CF';
+    src: url('../fonts/IntegralCF-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Integral CF';
+    src: url('../fonts/IntegralCF-Regular.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  
+  body {
+    font-family: 'Integral CF', sans-serif;
+    color: white;
+    background: black;
+    scroll-behavior: smooth;
+    padding-top: 70px; /* same as nav height */
+  }
+
+  .artist-section {
+    display: flex;
+    padding: 2rem 10rem;
+    justify-content: flex-end; /* bottom align on desktop */
+  }
+
+  .artist-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* bottom align on desktop */
+    flex: 1;
+  }
+
+  .artist-image {
+    height: 500px;
+    width: 500px;
+    object-fit: cover;
+    margin-right: 2rem;
+  }
+
+  h1 {
+    font-size: 8rem;
+  }
+
+  .title-wrapper h1 {
+    margin: 0;            /* remove default browser margins */
+    line-height: 1;       /* tighten vertical spacing */
+  }
+  
+  .title-wrapper h1 + h1 {
+    margin-top: -0.2em;   /* pull the second word closer */
+  }
+  
+  
+  p {
+    background: black;
+    font-size: .9rem;
+  }
+  
+  h4 {
+    background: black;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;     /* smaller top/bottom margin */
+    padding: 0 10.1rem;     /* no vertical padding, only side padding */
+  }
+  
+  #booking {
+    background:black;
+    font-size: 2rem;
+    padding: 1rem 10rem; /* top-left spacing */
+  }
+  
+  /* Top Nav (appears after scroll) */
+  .top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 10rem; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+    height: 70px; /* adjust to your nav’s actual height */
+  
+  }
+  
+  .logo {
+    height: 40px;   /* or 50px if you want bigger */
+    width: auto;    /* keeps aspect ratio */
+    display: block; /* removes extra inline spacing */
+  }
+
+  .wolfmagic-header, .eliderp-header, .haanter-header, .hyperlunion-header {
+    height: 45px;   /* or 50px if you want bigger */
+    width: auto;    /* keeps aspect ratio */
+    display: block; /* removes extra inline spacing */
+  }
+
+  .wakeup-header, .twopiece-header, .nuera-header {
+    height: 35px;   /* or 50px if you want bigger */
+    width: auto;    /* keeps aspect ratio */
+    display: block; /* removes extra inline spacing */
+  }
+  
+  /* Hamburger container */
+  .hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    width: 30px;
+    height: 16px;
+    justify-content: space-between;
+    z-index: 1000;
+  }
+
+  /* Hamburger bars */
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 1px;
+    transition: all 0.4s ease;
+  }
+  
+  /* Animate into X */
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.open span:nth-child(2) {
+    opacity: 0; /* hide middle bar */
+  }
+  
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;               /* hidden offscreen */
+  width: 70%;                 /* menu takes 70% of screen */
+  height: 100%;               /* full height for mobile */
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* center vertically */
+  align-items: stretch;       /* stretch links across menu */
+  gap: 2rem;
+  padding: 0 2rem;            /* horizontal padding inside menu */
+  transition: right 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  z-index: 998;
+}
+
+.mobile-menu.active {
+  right: 0;
+  opacity: 1;
+}
+
+.mobile-menu a {
+  color: white;
+  font-size: 1.5rem;          /* same as artist page */
+  text-decoration: none;
+  width: 100%;                /* fill width of menu */
+  text-align: center;         /* center the text */
+  padding: 0.5rem 0;          /* vertical spacing between links */
+}
+
+
+  .mobile-menu a:hover {
+    color: #b0ff12;;        /* highlight color when hovered */
+  }
+  
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;                 /* no flex gap */
+    font-family: serif;
+    text-align: center;
+    padding-bottom: 2px;
+    padding-top: 1rem;
+  }
+  
+  .footer-logo {
+    width: 40px;
+    height: auto;
+    display: block;     
+  }
+  
+  footer p {
+    margin: 0;              /* remove default margin */
+    line-height: 1;         /* shrink vertical space inside text */
+    font-size: 0.75rem;
+  }
+
+  .artist-links {
+    margin-top: 0.75rem;
+    display: flex;
+    gap: 1rem;             /* space between icons */
+  }
+  
+  .artist-links a {
+    font-size: 1.5rem;       /* make icons bigger */
+    color: white;           /* default color */
+    transition: color 0.3s;
+  }
+  
+  .artist-links a:hover {
+    color: #b0ff12;;        /* highlight color when hovered */
+  }
+  
+  
+  /* responsive */
+  @media (max-width: 1200px) {
+    .artists-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 across */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .artists-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 across */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      height: 30px;
+    }
+  }
+  
+  /* Tablet: 1024px and below */
+@media (max-width: 1024px) {
+  .artist-section {
+    flex-direction: column-reverse; /* image below content */
+    padding: 2rem 4rem;
+    align-items: center;
+  }
+
+  .artist-content {
+    justify-content: flex-start;
+    text-align: center;
+  }
+
+  .artist-image {
+    height: 400px;
+    width: 400px;
+    margin: 1rem 0 0 0;
+    margin-bottom: 1rem; 
+  }
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 1rem  
+  }
+
+  .artist-links a {
+    font-size: 1.25rem;
+  }
+
+  .top-nav, .mobile-menu {
+    padding: 1rem 4rem;
+  }
+
+  .title-wrapper h1 {
+    margin: 0;       /* remove top/bottom margin */
+    padding: 0;      /* ensure no extra padding */
+    line-height: 1;  /* tighten spacing */
+  }
+}
+
+/* Mobile: 768px and below */
+@media (max-width: 768px) {
+  .artist-section {
+    flex-direction: column;
+    padding: .5rem 2rem;
+  }
+
+  .artists-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 across */
+  }
+
+  .artist-image {
+  width: 100%;           /* full width of container */
+  height: auto;           /* keep correct aspect ratio */
+  max-width: 100%;        /* prevent overflow */
+  margin: 0rem;        /* spacing above/below */
+  margin-bottom: 1rem; 
+  object-fit: cover;      /* maintain cropping if needed */
+  }
+
+  footer {
+    padding-top: 1rem;   /* smaller top space */
+    padding-bottom: 10px; /* optional: add a bit more bottom breathing room */
+  }
+
+  .title-wrapper h1 {
+    margin: 0;       /* remove top/bottom margin */
+    padding: 0;      /* ensure no extra padding */
+    line-height: 1;  /* tighten spacing */
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    margin: 1rem  
+  }
+
+  .artist-links a {
+    font-size: 1.1rem;
+    margin-top: 0; /* removes gap above links */
+  }
+
+  .mobile-menu {
+    width: 70%;
+    padding-right: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .mobile-menu a {
+    text-align: left;
+    font-size: 1.25rem;
+  }
+
+  .title-wrapper {
+    display: flex;              /* place items next to each other */
+    justify-content: center;    /* center horizontally */
+    align-items: center;        /* align vertically */
+    flex-wrap: nowrap;
+    gap: 0.08rem;                /* space between words */
+  }
+
+  .title-wrapper h1 {
+    margin: 0;
+    font-size: 2.5rem;          /* smaller for mobile */
+  }
+
+  .title-wrapper h1 + h1 {
+    margin-top: 0;              /* remove the negative margin from desktop */
+  }
+}
+
+/* Small phones: 480px and below */
+@media (max-width: 480px) {
+
+  .artist-image {
+  width: 100%;           /* full width of container */
+  height: auto;           /* keep correct aspect ratio */
+  margin: 0rem;  
+  margin-bottom: 1rem;       /* spacing above/below */
+  max-width: 100%;        /* prevent overflow */
+  object-fit: cover;      /* maintain cropping if needed */
+  }
+
+  .title-wrapper h1 {
+    margin: 0;       /* remove top/bottom margin */
+    padding: 0;      /* ensure no extra padding */
+    line-height: 1;  /* tighten spacing */
+  }
+    
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+    margin: 1rem  
+  }
+
+  .artist-links {
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-top: 0; /* removes gap above links */
+  }
+}
+
+@media (max-width: 768px) {
+  .artist-links {
+    justify-content: center; /* center icons horizontally */
+    align-items: center;     /* vertically align, just in case */
+  }
+}
+
+@media (max-width: 1024px) {
+  .top-nav {
+    padding: 1rem 4rem;
+  }
+}
+
+/* Mobile: match 2rem side padding */
+@media (max-width: 768px) {
+  .top-nav {
+    padding: 1rem 2rem;
+  }
+}
+

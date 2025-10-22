@@ -1,0 +1,411 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonts */
+@font-face {
+  font-family: 'Integral CF';
+  src: url('../fonts/IntegralCF-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Integral CF';
+  src: url('../fonts/IntegralCF-Regular.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Integral CF', sans-serif;
+  color: white;
+  background: black;
+  scroll-behavior: smooth;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-inner h1 {
+  font-size: 10rem;
+  width: fit-content;
+}
+
+.hero-inner nav {
+  display: flex;
+  justify-content: space-between; /* spread links across full width */
+  width: 100%;                   /* full width of hero-inner */
+  max-width: 100%;               /* remove previous max-width limit */
+  margin-top: 1rem;
+  padding: 0 1rem;               /* optional horizontal padding */
+}
+
+.hero-inner nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  flex: 1;                        /* make each link take equal space */
+  text-align: center;             /* center the text in each flex item */
+}
+
+.hero-inner nav a:hover {
+  color: #b0ff12;
+}
+
+/* Sections */
+section {
+  height: auto;
+  font-size: 2rem;
+}
+
+#representation, #creative, #booking {
+  background: black;
+  font-size: 2rem;
+  padding: 1rem 10rem;
+  padding-top: 70px; /* same as nav height */
+}
+
+p {
+  background: black;
+  font-size: .9rem;
+  padding: 1rem 10.2rem;
+}
+
+h4 {
+  background: black;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  padding: 0 10.1rem;
+}
+
+/* Top Nav */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+  z-index: 999;
+}
+
+.top-nav.active {
+  transform: translateY(0);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* Hamburger */
+.hamburger {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 30px;
+  height: 16px;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: white;
+  border-radius: 1px;
+  transition: all 0.4s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu (consistent with artist page) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;               /* hidden offscreen */
+  width: 70%;                 /* menu takes 70% of screen */
+  height: 100%;               /* full height for mobile */
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* center vertically */
+  align-items: stretch;       /* stretch links across menu */
+  gap: 2rem;
+  padding: 0 2rem;            /* horizontal padding inside menu */
+  transition: right 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  z-index: 998;
+}
+
+.mobile-menu.active {
+  right: 0;
+  opacity: 1;
+}
+
+.mobile-menu a {
+  color: white;
+  font-size: 1.5rem;          /* same as artist page */
+  text-decoration: none;
+  width: 100%;                /* fill width of menu */
+  text-align: center;         /* center the text */
+  padding: 0.5rem 0;          /* vertical spacing between links */
+}
+
+
+.mobile-menu a:hover {
+  color: #b0ff12;;        /* highlight color when hovered */
+}
+
+/* Background logo */
+.bg-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Footer */
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;                 /* no flex gap */
+    font-family: serif;
+    text-align: center;
+    padding-bottom: 2px;
+    padding-top: 1rem;
+  }
+  
+  .footer-logo {
+    width: 40px;
+    height: auto;
+    display: block;     
+  }
+  
+  footer p {
+    margin: 0;              /* remove default margin */
+    line-height: 1;         /* shrink vertical space inside text */
+    font-size: 0.75rem;
+  }
+
+/* Artists Section */
+.artists-section {
+  padding: 2rem;
+}
+
+.artists-section h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 2rem 10rem;
+}
+
+.card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  perspective: 1000px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.card-front img,
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #b0ff12;
+}
+
+.card-back h3 {
+  margin: 0 0 1.7rem 0;
+  font-size: 1rem;
+  color: black;
+}
+
+/* Responsive Grid */
+@media (max-width: 1200px) {
+  .artists-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem 4rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-inner h1 {
+    font-size: 6rem;
+  }
+
+  #representation, #creative, #booking, p, h4 {
+    padding: 1rem 4rem;
+  }
+
+  .top-nav {
+    padding: 1rem 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Hero adjustments */
+  .hero-inner h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-inner nav {
+    width: 100%;
+    justify-content: space-between; /* stretch links under heading */
+    gap: 1.5rem;
+  }
+
+  .hero-inner nav a {
+    font-size: 0.8rem; /* smaller mobile nav font */
+  }
+
+  /* Center sections and text */
+  section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Sections padding */
+  #representation, #creative, #booking, p, h4 {
+    padding: 1rem 2rem;
+  }
+
+  .top-nav {
+    padding: 1rem 2rem;
+  }
+
+  /* Artists grid mobile */
+  .artists-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+    gap: 1rem;
+    justify-items: center;
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    width: 70%;
+    padding-right: 2rem;
+    align-items: flex-start;
+  }
+
+  .mobile-menu a {
+    font-size: 1.2rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-inner h1 {
+    font-size: 2.5rem;
+  }
+
+  .artists-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  #representation, #creative, #booking, p, h4 {
+    padding: 0.5rem 1rem;
+  }
+
+  .top-nav {
+    padding: 0.5rem 1rem;
+  }
+
+  .hero-inner nav a {
+    font-size: 0.7rem;
+  }
+}
