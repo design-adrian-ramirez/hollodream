@@ -376,9 +376,11 @@ h4 {
   /* Artists grid mobile */
   .artists-grid {
     grid-template-columns: repeat(2, 1fr);
-    padding: 1rem;
+    padding-left: 2rem;   /* match .top-nav left */
+    padding-right: 2rem;  /* match .top-nav right */
     gap: 1rem;
     justify-items: center;
+  
   }
 
   /* Mobile menu */
