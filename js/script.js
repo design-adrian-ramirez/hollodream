@@ -13,7 +13,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Hamburger toggle
+// Hamburger menu toggle
 hamburger.addEventListener('click', () => {
   mobileMenu.classList.toggle('active');
   hamburger.classList.toggle('open');
