@@ -29,6 +29,7 @@ body {
   color: white;
   background: black;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Hero Section */
@@ -40,36 +41,38 @@ body {
   align-items: center;
   position: relative;
   text-align: center;
+  gap: 0; /* remove gap to prevent scroll issues */
 }
 
 .hero-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  padding-bottom: 70px; /* maintain spacing visually */
+  width: 90vw;
+  z-index: 10;
 }
 
 .hero-inner h1 {
   font-size: 10rem;
-  width: fit-content;
 }
 
 .hero-inner nav {
   display: flex;
-  justify-content: space-between; /* spread links across full width */
-  width: 100%;                   /* full width of hero-inner */
-  max-width: 100%;               /* remove previous max-width limit */
+  justify-content: space-between;
+  width: 100%;
   margin-top: 1rem;
-  padding: 0 1rem;               /* optional horizontal padding */
+  padding: 0 1rem;
 }
 
 .hero-inner nav a {
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
-  white-space: nowrap;
-  flex: 1;                        /* make each link take equal space */
-  text-align: center;             /* center the text in each flex item */
+  flex: 1;
+  text-align: center;
 }
 
 .hero-inner nav a:hover {
@@ -80,26 +83,28 @@ body {
 section {
   height: auto;
   font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 #representation, #creative, #booking {
   background: black;
   font-size: 2rem;
   padding: 1rem 10rem;
-  padding-top: 70px; /* same as nav height */
+  padding-top: 72px; /* nav height */
 }
 
 p {
-  background: black;
   font-size: .9rem;
   padding: 1rem 10.2rem;
 }
 
 h4 {
-  background: black;
   font-size: 1.5rem;
-  margin: 0;
   padding: 0 10.1rem;
+  margin: 0;
 }
 
 /* Top Nav */
@@ -112,10 +117,10 @@ h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95); /* slightly more opaque */
   transform: translateY(-100%);
   transition: transform 0.4s ease;
-  z-index: 999;
+  z-index: 9999; /* ensure nav is above everything */
 }
 
 .top-nav.active {
@@ -137,7 +142,7 @@ h4 {
   width: 30px;
   height: 16px;
   justify-content: space-between;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .hamburger span {
@@ -161,23 +166,23 @@ h4 {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile Menu (consistent with artist page) */
+/* Mobile Menu */
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -100%;               /* hidden offscreen */
-  width: 70%;                 /* menu takes 70% of screen */
-  height: 100%;               /* full height for mobile */
+  right: -100%;
+  width: 70%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.95);
   display: flex;
   flex-direction: column;
-  justify-content: center;    /* center vertically */
-  align-items: stretch;       /* stretch links across menu */
+  justify-content: center;
+  align-items: stretch;
   gap: 2rem;
-  padding: 0 2rem;            /* horizontal padding inside menu */
+  padding: 0 2rem;
   transition: right 0.4s ease, opacity 0.4s ease;
   opacity: 0;
-  z-index: 998;
+  z-index: 9998;
 }
 
 .mobile-menu.active {
@@ -187,16 +192,15 @@ h4 {
 
 .mobile-menu a {
   color: white;
-  font-size: 1.5rem;          /* same as artist page */
+  font-size: 1.5rem;
   text-decoration: none;
-  width: 100%;                /* fill width of menu */
-  text-align: center;         /* center the text */
-  padding: 0.5rem 0;          /* vertical spacing between links */
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
 }
 
-
 .mobile-menu a:hover {
-  color: #b0ff12;;        /* highlight color when hovered */
+  color: #b0ff12;
 }
 
 /* Background logo */
@@ -212,41 +216,24 @@ h4 {
 }
 
 /* Footer */
-  footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;                 /* no flex gap */
-    font-family: serif;
-    text-align: center;
-    padding-bottom: 2px;
-    padding-top: 1rem;
-  }
-  
-  .footer-logo {
-    width: 40px;
-    height: auto;
-    display: block;     
-  }
-  
-  footer p {
-    margin: 0;              /* remove default margin */
-    line-height: 1;         /* shrink vertical space inside text */
-    font-size: 0.75rem;
-  }
-
-/* Artists Section */
-.artists-section {
-  padding: 2rem;
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: serif;
+  text-align: center;
+  padding: 1rem 0 2px;
 }
 
-.artists-section h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
+footer p {
+  margin: 0;
+  line-height: 1;
+  font-size: 0.75rem;
 }
 
+/* Artists Grid */
 .artists-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -258,10 +245,8 @@ h4 {
   width: 100%;
   aspect-ratio: 1 / 1;
   perspective: 1000px;
-  display: block;
   text-decoration: none;
   color: inherit;
-  
 }
 
 .card-inner {
@@ -270,16 +255,14 @@ h4 {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.6s;
-
 }
 
-
-.card:hover .card-inner {
+.card:hover .card-inner,
+.card.flip .card-inner {
   transform: rotateY(180deg);
 }
 
-.card-front,
-.card-back {
+.card-front, .card-back {
   position: absolute;
   top: 0;
   left: 0;
@@ -312,261 +295,29 @@ h4 {
   color: black;
 }
 
-.card.flip .card-inner {  /* added */
-  transform: rotateY(180deg) !important;
-}
-
-
-/* Responsive Grid */
-@media (max-width: 1200px) {
-  .artists-grid {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 2rem 4rem;
-  }
-    #representation, #creative, #booking, p, h4 {
-    padding: 0.5rem 1rem;
-  }
-
-  #representation {
-    padding-top: 72px; /* prevents nav from covering content */
-  }
-
-  #creative {
-    padding-top: 36px; /* prevents nav from covering content */
-  }
-
-  #booking {
-    padding-top: 36px; /* prevents nav from covering content */
-  }
-}
-
-@media (max-width: 1024px) {
-  .hero-inner h1 {
-    font-size: 6rem;
-  }
-
-  #representation, #creative, #booking, p, h4 {
-    padding: 0.5rem 1rem;
-  }
-
-  #representation {
-    padding-top: 72px; /* prevents nav from covering content */
-  }
-
-  #creative {
-    padding-top: 36px; /* prevents nav from covering content */
-  }
-
-  #booking {
-    padding-top: 36px; /* prevents nav from covering content */
-  }
-  .top-nav {
-    padding: 1rem 4rem;
-  }
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
-
-html, body {
-  height: 100%;       /* ensures full viewport */
-  margin: 0;
-  padding: 0;
-}
-
-  /* Hero adjustments */
-
-  .hero {
-    position: relative;
-    height: 100vh;     /* full viewport height */
+  .top-nav { padding: 1rem 2rem; }
+  .hero-inner h1 { font-size: 6rem; }
+  .hero-inner nav a { font-size: 0.7rem; }
+  .artists-grid { grid-template-columns: 1fr; padding: 2rem; gap: 0.5rem; }
+  .mobile-menu a { font-size: 1.2rem; text-align: left; }
+  #representation, #creative, #booking { padding-top: 72px; padding-left: 1rem; padding-right: 1rem; }
+  h4, p {
+    text-align: center;
     width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center; /* horizontal centering */
-    align-items: center;     /* vertical centering */
-    padding: 0;              /* remove any padding offsets */
-  }
-
-  .hero-inner {
-    position: relative;      /* relative to .hero now */
-    top: 0;
-    left: 0;
-    transform: none;         /* no manual translation */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 90vw;             /* safe width */
-    z-index: 10;
-  }
-
-  .hero-inner h1 {
-    font-size: 6rem;
-  }
-
-.hero-inner nav {
-  display: flex;
-  justify-content: center;   /* center links */
-  flex-wrap: nowrap;         /* prevent wrapping */
-  gap: 1rem;                 /* spacing between links */
-  width: 100%;
-}
-
-.hero-inner nav a {
-  flex: 0 1 auto;            /* allow links to shrink but not stretch */
-  text-align: center;
-  font-size: 0.7rem;         /* small mobile font */
-}
-
-  /* Center sections and text */
-  section {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Sections padding */
-  #representation, #creative, #booking, p, h4 {
-    padding: 0.5rem 1rem;
-    text-align: center;
-  }
-
-  #representation {
-    padding-top: 72px; /* prevents nav from covering content */
-  }
-
-  #creative {
-    padding-top: 36px; /* prevents nav from covering content */
-  }
-
-  #booking {
-    padding-top: 36px; /* prevents nav from covering content */
-  }
-
-  .top-nav {
-    padding: 1rem 2rem;
-  }
-  
-
-  /* Artists grid mobile */
-.artists-grid {
-  grid-template-columns: 1fr;
-  padding: 2rem;
-  gap: 0.5rem;
-  justify-items: center;
-  
-  }
-
-  /* Mobile menu */
-  .mobile-menu {
-    width: 70%;
-    padding-right: 2rem;
-    align-items: flex-start;
-  }
-
-  .mobile-menu a {
-    font-size: 1.2rem;
-    text-align: left;
-  }
-  .footer {
-    padding: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   
 }
 
 @media (max-width: 480px) {
-
-  html, body {
-  height: 100%;       /* ensures full viewport */
-  margin: 0;
-  padding: 0;
-}
-
-  .hero {
-    position: relative;
-    height: 100vh;     /* full viewport height */
+  .hero-inner h1 { font-size: 3rem; }
+  h4, p {
+    text-align: center;
     width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center; /* horizontal centering */
-    align-items: center;     /* vertical centering */
-    padding: 0;              /* remove any padding offsets */
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-
-  .hero-inner {
-    position: relative;      /* relative to .hero now */
-    top: 0;
-    left: 0;
-    transform: none;         /* no manual translation */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 90vw;             /* safe width */
-    z-index: 10;
-  }
-
-  .hero-inner h1 {
-    font-size: 3rem;
-  }
-
-.hero-inner nav {
-  display: flex;
-  justify-content: center;   /* center links */
-  flex-wrap: nowrap;         /* prevent wrapping */
-  gap: 1rem;                 /* spacing between links */
-  width: 100%;
-}
-
-.hero-inner nav a {
-  flex: 0 1 auto;            /* allow links to shrink but not stretch */
-  text-align: center;
-  font-size: 0.7rem;         /* small mobile font */
-}
-
-
-.artists-grid {
-  grid-template-columns: 1fr;
-  padding: 1rem;
-  gap: 0.5rem;
-  justify-items: center;
-  
-}
-
-  #representation, #creative, #booking, p, h4 {
-    padding: 0.5rem 1rem;
-    text-align: center;
-  }
-
-  #representation {
-    padding-top: 72px; /* prevents nav from covering content */
-  }
-
-  #creative {
-    padding-top: 36px; /* prevents nav from covering content */
-  }
-
-  #booking {
-    padding-top: 36px; /* prevents nav from covering content */
-  }
-
-  .top-nav {
-    padding: 0.5rem 1rem;
-  }
-
-  .hero-inner nav a {
-    font-size: 0.7rem;
-  }
-
-  .footer {
-    padding: 20px;
-  }
-
-  
-}
-
-html, body {
-  overflow-x: hidden;
 }
